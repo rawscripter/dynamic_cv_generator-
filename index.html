@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Builder</title>
+
+    <!-- loading cdn links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+
+ <div style="height:40px;"></div>
+ <div class="assessment-container container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 form-box">
+            <form role="form" method="post" id="cv_form" class="registration-form" action="save.php">
+
+
+
+<!-- First Step Start -->
+<fieldset>
+    <div class="form-top">
+        <div class="form-top-left">
+            <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>Personal Information</h3>
+            <p>Step: 1  </p>
+        </div>
+    </div>
+    <div class="form-bottom">
+        <div class="row">
+            <div class="form-group col-md-6 col-sm-6">
+                <input type="text" class="form-control" name="first_name" placeholder="Firstname" >
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+                <input type="text" class="form-control" name="last_name" placeholder="Lastname" >
+            </div>
+        </div>
+        <div class="form-group" style="margin-bottom:3px;">
+            <div class="row">
+                <div class="form-group col-md-12 col-sm-12">
+                    <select name="gender" class="form-control">
+                        <option>Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email" class="form-email form-control" id="email" required>
+        </div>
+
+        <div class="form-group">
+         <input type="text" name="phone" placeholder="Phone Number" class="form-email form-control" id="email" required>
+     </div>
+
+     <button type="button" class="btn btn-next">Next</button>
+ </div>
+</fieldset>
+
+ <!-- step 2 -->
+
+    <fieldset>
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span> Profile</h3>
+                <p>Step: 2  </p>
+            </div>
+        </div>
+        <div class="form-bottom">
+            <!-- profile section -->
+            <div class="row">
+             <div class="col-md-12">
+                <h3>Profile:</h3>
+                <div class="form-group">
+                    <input type="text"  class="form-control" name="profile_title" placeholder="Profile Title" >
+                </div>
+
+                <div class="form-group">
+                    <textarea name="profile_des" placeholder="Write Something about you in 140 words..." class="form-control" id="" cols="5" rows="2"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- end profile section -->
+        <button type="button" class="btn btn-previous">Previous</button>
+        <button type="button" class="btn btn-next">Next</button>
+    </div>
+</fieldset>
+
+
+ 
+        <!-- step 3 -->
+        <fieldset>
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>Skills</h3>
+                    <p>Step: 3  </p>
+                </div>
+            </div>
+            <div class="form-bottom">
+             <!-- Start Skill section -->
+             <div class="row">
+                <h3>Skills:</h3>
+                <div class="form-group col-md-9 col-sm-9">
+                    <input type="text" id="new_skill" name="skills[]" class="form-control" placeholder="Skill">
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                    <button type="button" class="btn btn-info add_more_skill_field_button btn-sm">Add More</button>
+                </div>
+                <div class="col-md-12">
+                    <div class="add_more_skill">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-previous">Previous</button>
+            <button type="button" class="btn btn-next">Next</button>
+        </div>
+    </fieldset>
+
+
+
+
+  <!-- step 4 -->
+                <fieldset>
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>Experience</h3>
+                            <p>Step: 4  </p>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                     <!-- Start Skill section -->
+                     <div class="row">
+                        <div class="form-group col-md-9 col-sm-9">
+                           <h3>Experience:</h3>
+                       </div>
+                       <div class="form-group col-md-3 col-sm-3">
+                        <button type="button" class="btn btn-info add_more_experience_feild_button btn-sm">Add More</button>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="add_more_experience_feild">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="ex_company[]" class="form-control"  placeholder="Company Name" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="ex_deg[]" placeholder="Designation" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">Start Date</label>
+                                <input type="date" class="form-control" name="ex_start[]" placeholder="Start Date" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">End Date</label>
+                                <input type="date" class="form-control" name="ex_end[]" placeholder="End Date" >
+                            </div>
+                            <div class="form-group col-md-12">
+                                <textarea name="ex_job_des[]" id="" cols="5" class="form-control" placeholder="Write something about your job. Max 140 words" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-next">Next</button>
+            </div>
+        </fieldset>
+       
+
+                <!-- Final Step -->
+                <fieldset>
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>Educational Qualification</h3>
+                            <p>Final Step  </p>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                     <!-- Start Skill section -->
+                     <div class="row">
+                        <div class="form-group col-md-9 col-sm-9">
+                           <h3>Educational Qualification:</h3>
+                       </div>
+                       <div class="form-group col-md-3 col-sm-3">
+                        <button type="button" class="btn btn-info add_more_education_feild_button btn-sm">Add More</button>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="add_more_education_feild">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" name="edu_deg[]" placeholder="Degree" >
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" name="edu_inst[]" placeholder="Institute Name" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="edu_group[]" placeholder="Group" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="edu_gpa[]" placeholder="GPA" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">Start Date</label>
+                                <input type="date" class="form-control" name="edu_start[]" placeholder="Start Date" >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">End Date</label>
+                                <input type="date" class="form-control" name="edu_end[]" placeholder="Designation" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input id="submit_btn" type="button" value="Generate CV">
+            </div>
+        </fieldset>
+
+
+
+<!-- Second Step END -->
+</form>
+</div>
+</div>
+</div>
+
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+
+        // for add more skill
+        $(document).on('click', '.add_more_skill_field_button', function(event) {
+            event.preventDefault();
+
+            var skill = $.trim($("#new_skill").val());
+            skill = skill.toLowerCase();
+
+            if (skill != '') {
+               let field = '<div class="row"><div class="form-group col-md-9 col-sm-9"><input type="text" name="skills[]" class="form-control" value="'+skill+'" required placeholder="'+skill+'"></div><div class="form-group col-md-3 col-sm-3"><button type="button" class="btn btn-danger btn-sm delete_skill_field">Delete</button></div></div>';
+               $(".add_more_skill").append(field);
+               $("#new_skill").val('');
+           }else{
+            $("#new_skill").addClass('input-error');
+        }
+    });
+
+        // for remove skill
+        $(document).on('click', '.delete_skill_field', function(event) {
+            event.preventDefault();
+            $(this).parent().parent().html('');
+        });
+    });
+
+
+    // for add more experience
+    $(document).on('click', '.add_more_experience_feild_button', function(event) {
+            event.preventDefault();
+               let field = '<div class="row"> <div class="form-group col-md-6"> <input type="text" name="ex_company[]" class="form-control" placeholder="Company Name" > </div><div class="form-group col-md-6"> <input type="text" class="form-control" name="ex_deg[]" placeholder="Designation" > </div><div class="form-group col-md-6"> <label for="">Start Date</label> <input type="date" class="form-control" name="ex_start[]" placeholder="Start Date" > </div><div class="form-group col-md-6"> <label for="">End Date</label> <input type="date" class="form-control" name="ex_end[]" placeholder="End Date" > </div><div class="form-group col-md-12"> <textarea name="ex_job_des[]" id="" cols="5" class="form-control" placeholder="Write something about your job. Max 140 words" rows="2"></textarea> </div><div class="col-md-12"><span class="saparator"></span></div></div>';
+
+               $(".add_more_experience_feild").prepend(field);
+    });
+
+
+
+        // for add more education
+    $(document).on('click', '.add_more_education_feild_button', function(event) {
+            event.preventDefault();
+               let field = ' <div class="row"> <div class="form-group col-md-12"> <input type="text" class="form-control" name="edu_deg[]" placeholder="Degree" > </div><div class="form-group col-md-12"> <input type="text" class="form-control" name="edu_inst[]" placeholder="Institute Name" > </div><div class="form-group col-md-6"> <input type="text" class="form-control" name="edu_group[]" placeholder="Group" > </div><div class="form-group col-md-6"> <input type="text" class="form-control" name="edu_gpa[]" placeholder="GPA" > </div><div class="form-group col-md-6"> <label for="">Start Date</label> <input type="date" class="form-control" name="edu_start[]" placeholder="Start Date" > </div><div class="form-group col-md-6"> <label for="">End Date</label> <input type="date" class="form-control" name="edu_end[]" placeholder="Designation" > </div><div class="col-md-12"><span class="saparator"></span></div>';
+
+               $(".add_more_education_feild").prepend(field);
+    });
+
+    $("#submit_btn").click(function(event) {
+       $("#cv_form").submit();
+
+    });
+</script>
+    
